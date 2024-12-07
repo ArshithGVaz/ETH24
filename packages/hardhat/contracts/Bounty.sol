@@ -17,6 +17,7 @@ contract Bounty {
 
     event BountyCreated(uint256 bountyId, address indexed host, uint256 amount, uint256 deadline);
     event PictureSubmitted(uint256 bountyId, address indexed participant);
+    event Voted(uint256 bountyId, address indexed voter, address indexed participant);
     event BountyClaimed(uint256 bountyId, address indexed winner, uint256 amount);
 
     constructor() {
@@ -43,10 +44,11 @@ contract Bounty {
 
     function vote(uint256 bountyId, address participant) public {
         require(bounties[bountyId].deadline > block.timestamp, "Bounty has ended");
-        require(votes[participant] == 0, "Already voted for this participant");
+        require(bounties[bountyId].votes[msg.sender] == 0, "Already voted");
 
-        bounties[bountyId].votes[participant]++;
+        bounties[bountyId].votes[msg.sender] = 1; // Mark that this voter has voted
         bounties[bountyId].totalVotes++;
+        emit Voted(bountyId, msg.sender, participant);
     }
 
     function claimBounty(uint256 bountyId) public {
