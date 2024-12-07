@@ -4,37 +4,39 @@ pragma solidity ^0.8.0;
 contract ContentStorage {
     struct Content {
         address owner;
-        bool isPublic;
-        uint256 price; // Price to view private content
+        uint256 price;
+        string title;
+        string description;
+        string group;
     }
 
     mapping(uint256 => Content) public contents;
     uint256 public contentCount;
 
-    event ContentUploaded(uint256 indexed contentId, address indexed owner, bool isPublic);
+    event ContentUploaded(uint256 indexed contentId, address indexed owner, uint256 price);
+    event ContentBought(uint256 indexed contentId, address indexed buyer);
 
-    function uploadContent(bool _isPublic, uint256 _price) public {
+    function uploadContent(uint256 _price, string memory _title, string memory _description, string memory _group) public {
         contents[contentCount] = Content({
             owner: msg.sender,
-            isPublic: _isPublic,
-            price: _price
+            price: _price,
+            title: _title,
+            description: _description,
+            group: _group
         });
 
-        emit ContentUploaded(contentCount, msg.sender, _isPublic);
+        emit ContentUploaded(contentCount, msg.sender, _price);
         contentCount++;
     }
 
-    function viewContent(uint256 _contentId) public payable returns (bool) {
+    function buyContent(uint256 _contentId) public payable {
         Content storage content = contents[_contentId];
 
         require(content.owner != address(0), "Content not found");
+        require(msg.value >= content.price, "Insufficient payment to view content");
 
-        if (!content.isPublic) {
-            require(msg.value >= content.price, "Insufficient payment to view content");
-            // Transfer payment to the owner
-            payable(content.owner).transfer(msg.value);
-        }
+        payable(content.owner).transfer(msg.value);
 
-        return content.isPublic; // Return whether the content is public or private
+        emit ContentBought(_contentId, msg.sender);
     }
 }
