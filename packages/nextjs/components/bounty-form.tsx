@@ -75,9 +75,9 @@ export function BountyForm() {
                 <FormItem>
                   <FormLabel>Image URL</FormLabel>
                   <FormControl>
-                    <Input placeholder="https://example.com/image.jpg" {...field} />
+                    <Input id="picture" type="file" />
                   </FormControl>
-                  <FormDescription>Provide a URL for the bounty image.</FormDescription>
+                  <FormDescription>Submit the images.</FormDescription>
                   <FormMessage />
                 </FormItem>
               )}

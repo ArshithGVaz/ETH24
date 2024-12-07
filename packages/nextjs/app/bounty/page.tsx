@@ -2,6 +2,7 @@
 
 import React from "react";
 import BountyCard from "~~/components/bountry-card";
+import { useScaffoldReadContract } from "~~/hooks/scaffold-eth/useScaffoldReadContract";
 
 // type Props = {};
 

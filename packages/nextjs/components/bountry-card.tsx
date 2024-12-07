@@ -20,7 +20,7 @@ export default function BountyCard({ data }: { data: { [key: string]: any } }) {
 
   const handleSubmit = () => {
     console.log("open");
-    router.push(`/bounty/upload/${data.id}`);
+    router.push(`/bounty/upload/${data.name}`);
   };
 
   return (
