@@ -5,26 +5,26 @@ contract Advertising {
     struct Ad {
         address advertiser;
         string adContent;
-        uint256 cost;
         bool isActive;
     }
 
     mapping(uint256 => Ad) public ads;
     uint256 public adCounter;
-    address public immutable owner;
+    address payable public immutable platformAddress;
 
     event AdCreated(uint256 adId, address indexed advertiser, uint256 cost);
     event AdRemoved(uint256 adId);
 
     constructor() {
-        owner = msg.sender;
+        platformAddress = payable(msg.sender);
     }
 
     function createAd(string memory adContent, uint256 cost) public payable {
         require(msg.value == cost, "Incorrect amount sent");
 
         adCounter++;
-        ads[adCounter] = Ad(msg.sender, adContent, cost, true);
+        ads[adCounter] = Ad(msg.sender, adContent, false);
+        payable(platformAddress).transfer(msg.value);
         emit AdCreated(adCounter, msg.sender, cost);
     }
 

@@ -13,7 +13,7 @@ contract ContentStorage {
     mapping(uint256 => Content) public contents;
     uint256 public contentCount;
 
-    event ContentUploaded(uint256 indexed contentId, address indexed owner, uint256 price);
+    event ContentUploaded(uint256 indexed contentId, address indexed owner, uint256 price, string title, string description, string group);
     event ContentBought(uint256 indexed contentId, address indexed buyer);
 
     function uploadContent(uint256 _price, string memory _title, string memory _description, string memory _group) public {
@@ -25,7 +25,7 @@ contract ContentStorage {
             group: _group
         });
 
-        emit ContentUploaded(contentCount, msg.sender, _price);
+        emit ContentUploaded(contentCount, msg.sender, _price, _title, _description, _group);
         contentCount++;
     }
 

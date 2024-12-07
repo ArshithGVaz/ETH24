@@ -596,7 +596,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     ContentStorage: {
-      address: "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707",
+      address: "0xa513E6E4b8f2a923D98304ec87F64353C4D5C853",
       abi: [
         {
           anonymous: false,
@@ -637,6 +637,24 @@ const deployedContracts = {
               internalType: "uint256",
               name: "price",
               type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "title",
+              type: "string",
+            },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "description",
+              type: "string",
+            },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "group",
+              type: "string",
             },
           ],
           name: "ContentUploaded",
