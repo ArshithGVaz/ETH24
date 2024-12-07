@@ -2139,6 +2139,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@radix-ui/react-label@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "@radix-ui/react-label@npm:2.1.0"
+  dependencies:
+    "@radix-ui/react-primitive": 2.0.0
+  peerDependencies:
+    "@types/react": "*"
+    "@types/react-dom": "*"
+    react: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+    react-dom: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+    "@types/react-dom":
+      optional: true
+  checksum: 462f3b47f43bd69c937e660dee229eb05990441e1b214923cdcf848aea62226e9f1c4673de6664bb4ad66f8a480acdb0f5d2ce4c88c425652b47432876b3f32f
+  languageName: node
+  linkType: hard
+
 "@radix-ui/react-menu@npm:2.1.2":
   version: 2.1.2
   resolution: "@radix-ui/react-menu@npm:2.1.2"
@@ -2636,6 +2655,7 @@ __metadata:
     "@coinbase/onchainkit": ^0.35.1
     "@heroicons/react": ~2.1.5
     "@radix-ui/react-dropdown-menu": ^2.1.2
+    "@radix-ui/react-label": ^2.1.0
     "@radix-ui/react-slot": ^1.1.0
     "@rainbow-me/rainbowkit": 2.1.6
     "@tanstack/react-query": ^5.60.5
