@@ -22,15 +22,6 @@ const deployYourContract: DeployFunction = async function (hre: HardhatRuntimeEn
   const { deployer } = await hre.getNamedAccounts();
   const { deploy } = hre.deployments;
 
-  await deploy("YourContract", {
-    from: deployer,
-    // Contract constructor arguments
-    args: [deployer],
-    log: true,
-    // autoMine: can be passed to the deploy function to make the deployment process faster on local networks by
-    // automatically mining the contract deployment transaction. There is no effect on live networks.
-    autoMine: true,
-  });
   await deploy("ContentStorage", {
     from: deployer,
     // Contract constructor arguments
@@ -47,23 +38,8 @@ const deployYourContract: DeployFunction = async function (hre: HardhatRuntimeEn
   //   // automatically mining the contract deployment transaction. There is no effect on live networks.
   //   autoMine: true,
   // });
-  await deploy("Bounty", {
-    from: deployer,
-    // Contract constructor arguments
-    log: true,
-    // autoMine: can be passed to the deploy function to make the deployment process faster on local networks by
-    // automatically mining the contract deployment transaction. There is no effect on live networks.
-    autoMine: true,
-  });
-  await deploy("Subscription", {
-    from: deployer,
-    // Contract constructor arguments
-    log: true,
-    // autoMine: can be passed to the deploy function to make the deployment process faster on local networks by
-    // automatically mining the contract deployment transaction. There is no effect on live networks.
-    autoMine: true,
-  });
-  await deploy("TravelerContent", {
+  await deploy("BountyContract", {
+    args: [deployer, 15],
     from: deployer,
     // Contract constructor arguments
     log: true,
@@ -78,6 +54,5 @@ const deployYourContract: DeployFunction = async function (hre: HardhatRuntimeEn
 
 export default deployYourContract;
 
-// Tags are useful if you have multiple deploy files and only want to run one of them.
 // e.g. yarn deploy --tags YourContract
 deployYourContract.tags = ["YourContract"];
