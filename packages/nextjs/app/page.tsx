@@ -5,6 +5,7 @@ import type { NextPage } from "next";
 import { useAccount } from "wagmi";
 import { BugAntIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { Address } from "~~/components/scaffold-eth";
+import BountyCard from "~~/components/bountry-card";
 
 const Home: NextPage = () => {
   const { address: connectedAddress } = useAccount();
@@ -60,6 +61,7 @@ const Home: NextPage = () => {
                   Block Explorer
                 </Link>{" "}
                 tab.
+                <BountyCard />
               </p>
             </div>
           </div>
