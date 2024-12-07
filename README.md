@@ -5,6 +5,20 @@
   <a href="https://scaffoldeth.io">Website</a>
 </h4>
 
+## Starting Akave
+```bash
+docker pull akave/akavelink:latest
+
+docker run -d \
+  -p 8000:3000 \
+  -e NODE_ADDRESS="connect.akave.ai:5500" \
+  -e PRIVATE_KEY="your_private_key_on_your_wallet" \
+  akave/akavelink:latest
+Akave faucet to claim 10 AKVF: https://faucet.akave.ai/
+```
+
+
+
 🧪 An open-source, up-to-date toolkit for building decentralized applications (dapps) on the Ethereum blockchain. It's designed to make it easier for developers to create and deploy smart contracts and build user interfaces that interact with those contracts.
 
 ⚙️ Built using NextJS, RainbowKit, Hardhat, Wagmi, Viem, and Typescript.
