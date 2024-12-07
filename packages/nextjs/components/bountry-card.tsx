@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -12,59 +13,65 @@ import {
 } from "@/components/ui/dialog";
 import { ChevronRight, X } from "lucide-react";
 
-export default function BountyCard({
-  title,
-  description,
-  image,
-}: {
-  title: string;
-  description: string;
-  image: string;
-}) {
+export default function BountyCard({ data }: { data: { [key: string]: any } }) {
   const [isOpen, setIsOpen] = useState(false);
+
+  const router = useRouter();
+
+  const handleSubmit = () => {
+    console.log("open");
+    router.push(`/bounty/upload/${data.id}`);
+  };
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <div className="cursor-pointer max-w-sm rounded-lg border border-gray-200 bg-white shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
+        <div className="cursor-pointer w-full  py-4 px-6  rounded-xl border border-slate-600 bg-black shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
           <div className="relative h-48 w-full">
             <Image
-              src="https://unsplash.com/photos/an-aerial-view-of-a-city-at-night-kMl4FSGXQRo"
+              src="https://images.unsplash.com/photo-1518710843675-2540dd79065c?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="Product Image"
               fill
-              className="object-cover"
+              className="object-cover rounded"
             />
           </div>
-          <div className="p-5">
-            <h3 className="text-xl font-semibold text-gray-900">{title}</h3>
-            <button className="inline-flex items-center rounded-md bg-primary px-3 py-2 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+          <div className="py-5">
+            <h3 className="text-xl mb-3 font-semibold text-gray-100">{data.name}</h3>
+            <Button
+              // variant="primary"
+              className="inline-flex items-center rounded bg-black px-3 py-2 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            >
               Click to view details
               <ChevronRight className="ml-2 h-4 w-4" />
-            </button>
+            </Button>
           </div>
         </div>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[700px] rounded-xl">
         <DialogHeader>
-          <DialogTitle>Amazing Product</DialogTitle>
-          <DialogDescription>Discover the features of our amazing product.</DialogDescription>
+          <DialogTitle>{data.name}</DialogTitle>
+          {/* <DialogDescription>Discover the features of our amazing product.</DialogDescription> */}
         </DialogHeader>
         <div className="relative aspect-video">
-          <Image src="/placeholder.svg" alt="Product Image" fill className="rounded-lg object-cover" />
+          <Image
+            src="https://images.unsplash.com/photo-1518710843675-2540dd79065c?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Product Image"
+            fill
+            className="rounded-lg object-cover"
+          />
         </div>
         <div className="mt-4">
           <h4 className="text-lg font-semibold">Bounty Details</h4>
-          <p className="mt-2">{description}</p>
+          <p className="mt-2">{data.requirements}</p>
+          <p className="mt-2">Prize pool:{data.amount}</p>
+          <p className="mt-2">Deadline:{data.deadline}</p>
         </div>
         <DialogFooter className="flex justify-between">
           <Button variant="outline" onClick={() => setIsOpen(false)}>
             Close
           </Button>
           <div>
-            <Button variant="outline" className="mr-2">
-              Add to Cart
-            </Button>
-            <Button>Buy Now</Button>
+            <Button onClick={handleSubmit}>Apply for Bounty</Button>
           </div>
         </DialogFooter>
         <button
