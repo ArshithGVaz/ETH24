@@ -8,7 +8,6 @@ contract BountyContract {
     struct Entry {
         uint256 id;
         address owner;
-        uint256 price;
         string title;
         string description;
         uint256 votes;
