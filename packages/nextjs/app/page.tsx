@@ -1,40 +1,47 @@
-import { SearchBar } from "@/components/Search";
-import Explore from "@/components/explore";
-import { Github } from "lucide-react";
-import Link from "next/link";
-import { AutocompleteComponent } from "~~/components/autocomplete";
-import { Label } from "~~/~/components/ui/label";
+"use client";
 
-export default function page() {
+import Link from "next/link";
+import type { NextPage } from "next";
+import { useAccount } from "wagmi";
+import { BugAntIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import { SearchBar } from "~~/components/Search";
+import Explore from "~~/components/explore";
+import { Address } from "~~/components/scaffold-eth";
+
+const Home: NextPage = () => {
+  const { address: connectedAddress, isConnected } = useAccount();
+
   return (
-    <main className="min-h-screen w-screen flex flex-col items-center justify-center space-y-2 max-w-4xl mx-auto px-6">
-			<h1 className="text-4xl font-bold text-center">
-				Shadcn Address Autocomplete
-			</h1>
-			<p className="text-center text-secondary-foreground">
-				An address autocomplete component using Google Places API and shadcn
-				components.
-			</p>
-			<div className="flex items-center gap-3 py-5">
-				<Link
-					href={
-						"https://github.com/NiazMorshed2007/shadcn-address-autocomplete"
-					}
-					target="_blank"
-					className={cn(buttonVariants())}
-				>
-					<Github className="size-4 mr-2" />
-					Github
-				</Link>
-				
-			</div>
-			<div className="w-full md:w-1/2 pt-7 space-y-1">
-				<Label htmlFor="address">Address</Label>
-				<AutocompleteComponent />
-				<p className="text-xs text-muted-foreground">
-					This uses mock data. Go to github to see how to use the real API.
-				</p>
-			</div>
-		</main>
+    <>
+      <div className="flex bg-[#36d116] flex-col items-center justify-items-center h-auto p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+        {isConnected ? (
+          <main className="flex bg-[#36d116] rounded-xl flex-col gap-8 row-start-2 items-center sm:items-start">
+            <SearchBar />
+            <Explore />
+          </main>
+        ) : (
+          <main className="flex bg-[#36d116] rounded-xl flex-col gap-8 row-start-2 items-center sm:items-start">
+            <div className="flex flex-col items-center justify-items-center h-auto p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+              <h1 className="text-4xl font-semibold text-center w-full">Welcome to WanderChain</h1>
+              <p className="text-xl font-semibold text-center w-full">
+                WanderChain is a decentralized platform that allows users to explore and discover new places to visit.
+              </p>
+              <p className="text-xl font-semibold text-center w-full">
+                With WanderChain, you can explore and discover new places to visit, learn about the history and culture
+                of different regions, and even experience the thrill of adventSure sports.
+              </p>
+              <p className="text-xl font-semibold text-center w-full">
+                Whether you're a seasoned traveler or a first-time explorer, WanderChain has something for everyone.
+              </p>
+              <p className="text-xl font-semibold text-center w-full">
+                So, what are you waiting for? Join the WanderChain community and start exploring the world!
+              </p>
+            </div>
+          </main>
+        )}
+      </div>
+    </>
   );
-}
+};
+
+export default Home;
