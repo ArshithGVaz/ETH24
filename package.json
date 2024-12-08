@@ -1,12 +1,15 @@
 {
   "name": "se-2",
   "version": "0.0.1",
-  "private": true,
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ]
+  "devDependencies": {
+    "husky": "~8.0.3",
+    "lint-staged": "~13.2.2"
   },
+  "engines": {
+    "node": ">=18.18.0"
+  },
+  "packageManager": "yarn@3.2.3",
+  "private": true,
   "scripts": {
     "account": "yarn workspace @se-2/hardhat account",
     "chain": "yarn workspace @se-2/hardhat chain",
@@ -34,15 +37,14 @@
     "vercel:yolo": "yarn workspace @se-2/nextjs vercel:yolo",
     "verify": "yarn workspace @se-2/hardhat verify"
   },
-  "devDependencies": {
-    "husky": "~8.0.3",
-    "lint-staged": "~13.2.2"
-  },
-  "packageManager": "yarn@3.2.3",
-  "engines": {
-    "node": ">=18.18.0"
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
   },
   "dependencies": {
-    "hardhat": "^2.22.17"
+    "express": "^4.21.2",
+    "hardhat": "^2.22.17",
+    "multer": "^1.4.5-lts.1"
   }
 }

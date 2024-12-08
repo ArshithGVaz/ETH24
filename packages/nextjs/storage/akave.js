@@ -82,6 +82,21 @@ export class Akave {
 
     return response.data;
   }
+
+  /**
+   * @param {string} bucket
+   * @param {string} fileName
+   * @returns {string}
+   */
+  async getFileURL(bucket, fileName) {
+    return `${this.client.defaults.baseURL}/buckets/${bucket}/files/${fileName}/download`;
+  }
+
+  async getAllFileURLs(bucket) {
+    const files = await this.listFiles(bucket);
+    const fileURLs = files.map(file => this.getFileURL(bucket, file.Name));
+    return fileURLs;
+  }
 }
 
 /**

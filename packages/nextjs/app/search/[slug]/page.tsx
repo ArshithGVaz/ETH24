@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import akave, { Akave } from "~~/storage/akave";
 import { FollowerPointerCard } from "~~/~/components/ui/following-pointer";
 
 const Card = ({ title, author, date, description, image, authorAvatar }: any) => (
@@ -29,11 +30,18 @@ const Card = ({ title, author, date, description, image, authorAvatar }: any) =>
   </FollowerPointerCard>
 );
 
+const getImages = async () => {
+  const image = await akave.getAllFileURLs("akatsuki");
+  console.log(image);
+  return image;
+};
+
 export default function Page({ params: { slug } }: { params: { slug: string } }) {
   const formattedSlug = slug
     .split("-")
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
+  const images = getImages();
 
   return (
     <div className="container mx-auto px-4 py-8">
