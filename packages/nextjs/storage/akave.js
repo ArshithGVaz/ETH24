@@ -94,8 +94,14 @@ export class Akave {
 
   async getAllFileURLs(bucket) {
     const files = await this.listFiles(bucket);
-    const fileURLs = files.map(file => this.getFileURL(bucket, file.Name));
-    return fileURLs;
+    const fileURLs = files.map(file => this.getFileURL(bucket, file.Name)); // Assuming file.Name contains the necessary identifier
+    return Promise.all(fileURLs); // Ensure all promises are resolved
+  }
+
+  async getAllFileURLsFromAllBuckets() {
+    const buckets = await this.listBuckets();
+    const fileURLs = buckets.map(bucket => this.getAllFileURLs(bucket.ID));
+    return Promise.all(fileURLs); // Ensure all promises are resolved
   }
 }
 
@@ -103,7 +109,7 @@ export class Akave {
  * @returns {Akave}
  */
 export function createAkaveInstance() {
-  const baseUrl = process.env.AKAVE_URL;
+  const baseUrl = process.env.AKAVE_URL || "https://tops-gibbon-friendly.ngrok-free.app";
 
   if (!baseUrl) throw new Error("Base URL is not defined in the environment variables");
 

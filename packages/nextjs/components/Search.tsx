@@ -51,7 +51,7 @@ export function SearchBar() {
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const search = searchTerm.trim().replace(/\s+/g, "-");
+    const search = searchTerm.trim().replace(/\s+/g, ""); // Trim spaces and remove all spaces
     router.push(`/search/${search}`);
   };
 

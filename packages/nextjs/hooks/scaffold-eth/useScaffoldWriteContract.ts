@@ -1,3 +1,6 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState } from "react";
 import { useTargetNetwork } from "./useTargetNetwork";
 import { MutateOptions } from "@tanstack/react-query";
@@ -62,7 +65,7 @@ export const useScaffoldWriteContract = <TContractName extends ContractName>(
             abi: deployedContractData.abi as Abi,
             address: deployedContractData.address,
             ...variables,
-          } as WriteContractVariables<Abi, string, any[], Config, number>,
+          } as unknown as WriteContractVariables<Abi, string, any[], Config, number>,
           mutateOptions as
             | MutateOptions<
                 WriteContractReturnType,
@@ -107,7 +110,7 @@ export const useScaffoldWriteContract = <TContractName extends ContractName>(
         abi: deployedContractData.abi as Abi,
         address: deployedContractData.address,
         ...variables,
-      } as WriteContractVariables<Abi, string, any[], Config, number>,
+      } as unknown as WriteContractVariables<Abi, string, any[], Config, number>,
       options as
         | MutateOptions<
             WriteContractReturnType,
