@@ -89,7 +89,23 @@ export class Akave {
    * @returns {string}
    */
   async getFileURL(bucket, fileName) {
-    return `/buckets/${bucket}/files/${fileName}/download`;
+    return `${this.client.defaults.baseURL}/buckets/${bucket}/files/${fileName}/download`;
+  }
+
+  async getAllFileURLs(bucket) {
+    const files = await this.listFiles(bucket);
+    console.log("Files:", files); // Check the output
+    if (!Array.isArray(files)) {
+      throw new Error("listFiles did not return an array");
+    }
+    const fileURLs = files.map(file => this.getFileURL(bucket, file.Name));
+    return Promise.all(fileURLs);
+  }
+
+  async getAllFileURLsFromAllBuckets() {
+    const buckets = await this.listBuckets();
+    const fileURLs = buckets.map(bucket => this.getAllFileURLs(bucket.ID));
+    return Promise.all(fileURLs); // Ensure all promises are resolved
   }
 }
 
@@ -97,7 +113,7 @@ export class Akave {
  * @returns {Akave}
  */
 export function createAkaveInstance() {
-  const baseUrl = process.env.AKAVE_URL;
+  const baseUrl = process.env.AKAVE_URL || "https://tops-gibbon-friendly.ngrok-free.app";
 
   if (!baseUrl) throw new Error("Base URL is not defined in the environment variables");
 

@@ -59,7 +59,7 @@ const BountyCreate = () => {
   }
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+    <div className="flex justify-center items-center min-h-screen bg-[#36d116] p-12">
       <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-6">
         <h2 className="text-2xl font-bold mb-4 text-gray-800">Create Travel Bounty</h2>
         <Form {...form}>

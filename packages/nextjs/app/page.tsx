@@ -3,69 +3,80 @@
 import Link from "next/link";
 import type { NextPage } from "next";
 import { useAccount } from "wagmi";
-import { BugAntIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
-import { Address } from "~~/components/scaffold-eth";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import { SearchBar } from "~~/components/Search";
 import BountyCard from "~~/components/bountry-card";
+import Explore from "~~/components/explore";
 
 const Home: NextPage = () => {
-  const { address: connectedAddress } = useAccount();
+  const { address: connectedAddress, isConnected } = useAccount();
+
+  // Sample bounty data
+  const bountyData1 = {
+    name: "Bounty 1",
+    requirements: "Complete the task to earn rewards.",
+    amount: "10 ETH",
+    deadline: "2023-12-31",
+  };
+  const bountyData2 = {
+    name: "Bounty 2",
+    requirements: "Fix bugs in the application.",
+    amount: "5 ETH",
+    deadline: "2023-11-30",
+  };
+  const bountyData3 = {
+    name: "Bounty 3",
+    requirements: "Design a new user interface.",
+    amount: "8 ETH",
+    deadline: "2024-01-15",
+  };
 
   return (
     <>
-      <div className="flex items-center flex-col flex-grow pt-10">
-        <div className="px-5">
-          <h1 className="text-center">
-            <span className="block text-2xl mb-2">Welcome to</span>
-            <span className="block text-4xl font-bold">Scaffold-ETH 2</span>
-          </h1>
-          <div className="flex justify-center items-center space-x-2 flex-col sm:flex-row">
-            <p className="my-2 font-medium">Connected Address:</p>
-            <Address address={connectedAddress} />
-          </div>
+      <div className="flex bg-[#36d116] flex-col items-center h-auto p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+        {isConnected ? (
+          <main className="flex flex-col gap-8 items-center sm:items-start">
+            <SearchBar />
+            <div className="flex flex-col gap-6 w-full max-w-4xl">
+              {/* Block Explorer Section */}
+              <div className="flex items-center gap-4 bg-white px-6 py-4 rounded-2xl shadow-md">
+                <MagnifyingGlassIcon className="h-8 w-8 text-gray-600" />
+                <p className="text-lg font-semibold text-gray-800">
+                  Explore your local transactions with the{" "}
+                  <Link href="/blockexplorer" passHref className="text-blue-600 underline">
+                    Block Explorer
+                  </Link>{" "}
+                  tab.
+                </p>
+              </div>
 
-          <p className="text-center text-lg">
-            Get started by editing{" "}
-            <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
-              packages/nextjs/app/page.tsx
-            </code>
-          </p>
-          <p className="text-center text-lg">
-            Edit your smart contract{" "}
-            <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
-              YourContract.sol
-            </code>{" "}
-            in{" "}
-            <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
-              packages/hardhat/contracts
-            </code>
-          </p>
-        </div>
-
-        <div className="flex-grow bg-base-300 w-full mt-16 px-8 py-12">
-          <div className="flex justify-center items-center gap-12 flex-col sm:flex-row">
-            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
-              <BugAntIcon className="h-8 w-8 fill-secondary" />
-              <p>
-                Tinker with your smart contract using the{" "}
-                <Link href="/debug" passHref className="link">
-                  Debug Contracts
-                </Link>{" "}
-                tab.
-              </p>
+              {/* Bounty Cards Section */}
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+                <BountyCard data={bountyData1} />
+                <BountyCard data={bountyData2} />
+                <BountyCard data={bountyData3} />
+              </div>
             </div>
-            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
-              <MagnifyingGlassIcon className="h-8 w-8 fill-secondary" />
-              <p>
-                Explore your local transactions with the{" "}
-                <Link href="/blockexplorer" passHref className="link">
-                  Block Explorer
-                </Link>{" "}
-                tab.
-                <BountyCard />
-              </p>
-            </div>
-          </div>
-        </div>
+            <Explore />
+          </main>
+        ) : (
+          <main className="flex flex-col gap-8 items-center text-center">
+            <h1 className="text-4xl font-semibold">Welcome to WanderChain</h1>
+            <p className="text-xl">
+              WanderChain is a decentralized platform that allows users to explore and discover new places to visit.
+            </p>
+            <p className="text-xl">
+              With WanderChain, you can explore and discover new places to visit, learn about the history and culture of
+              different regions, and even experience the thrill of adventure sports.
+            </p>
+            <p className="text-xl">
+              Whether you are a seasoned traveler or a first-time explorer, WanderChain has something for everyone.
+            </p>
+            <p className="text-xl">
+              So, what are you waiting for? Join the WanderChain community and start exploring the world!
+            </p>
+          </main>
+        )}
       </div>
     </>
   );
