@@ -1,0 +1,36 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/Advertisement.sol": {
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity >=0.8.0 <0.9.0;\n\ncontract Advertisement {\n    struct Ad {\n        address advertiser;\n        string adContent;\n        bool isActive;\n    }\n\n    mapping(uint256 => Ad) public ads;\n    uint256 public adCounter;\n    address payable public immutable platformAddress;\n\n    event AdCreated(uint256 adId, address indexed advertiser, uint256 cost);\n    event AdRemoved(uint256 adId);\n\n    constructor() {\n        platformAddress = payable(msg.sender);\n    }\n\n    function createAd(string memory adContent, uint256 cost) public payable {\n        require(msg.value == cost, \"Incorrect amount sent\");\n\n        adCounter++;\n        ads[adCounter] = Ad(msg.sender, adContent, false);\n        payable(platformAddress).transfer(msg.value);\n        emit AdCreated(adCounter, msg.sender, cost);\n    }\n\n    function removeAd(uint256 adId) public {\n        require(ads[adId].advertiser == msg.sender, \"Not the advertiser\");\n        require(ads[adId].isActive, \"Ad already removed\");\n\n        ads[adId].isActive = false;\n        emit AdRemoved(adId);\n    }\n}\n"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "evmVersion": "paris",
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}

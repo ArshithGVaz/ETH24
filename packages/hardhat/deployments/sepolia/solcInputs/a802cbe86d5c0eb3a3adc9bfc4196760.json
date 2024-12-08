@@ -1,0 +1,42 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/Advertisement.sol": {
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity >=0.8.0 <0.9.0;\n\ncontract Advertising {\n    struct Ad {\n        address advertiser;\n        string adContent;\n        bool isActive;\n    }\n\n    mapping(uint256 => Ad) public ads;\n    uint256 public adCounter;\n    address payable public immutable platformAddress;\n\n    event AdCreated(uint256 adId, address indexed advertiser, uint256 cost);\n    event AdRemoved(uint256 adId);\n\n    constructor() {\n        platformAddress = payable(msg.sender);\n    }\n\n    function createAd(string memory adContent, uint256 cost) public payable {\n        require(msg.value == cost, \"Incorrect amount sent\");\n\n        adCounter++;\n        ads[adCounter] = Ad(msg.sender, adContent, false);\n        payable(platformAddress).transfer(msg.value);\n        emit AdCreated(adCounter, msg.sender, cost);\n    }\n\n    function removeAd(uint256 adId) public {\n        require(ads[adId].advertiser == msg.sender, \"Not the advertiser\");\n        require(ads[adId].isActive, \"Ad already removed\");\n\n        ads[adId].isActive = false;\n        emit AdRemoved(adId);\n    }\n}\n"
+    },
+    "contracts/BountyContract.sol": {
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity >=0.8.0 <0.9.0;\n\ncontract BountyContract {\n    address payable public platformAddress;\n    uint256 public platformShare;\n\n    struct Entry {\n        uint256 id;\n        address owner;\n        string title;\n        string description;\n        uint256 votes;\n        mapping(address => bool) hasVoterVoted;\n    }\n    uint256 public entryCounter;\n\n    struct Bounty {\n        address host;\n        string name;\n        string requirements;\n        uint256 amount;\n        uint256 deadline;\n        address[] participants;\n        uint256 totalVotes;\n        mapping(address => Entry[]) participantToContent;\n    }\n    uint256 public bountyCounter;\n\n    mapping(uint256 => Bounty) public bounties;\n\n    event BountyCreated(uint256 bountyId, address indexed host, string name, string requirements, uint256 amount, uint256 deadline);\n\n    constructor(address _platformAddress, uint256 _platformShare) {\n        require(_platformAddress != address(0), \"Platform address cannot be zero\");\n        platformAddress = payable(_platformAddress);\n        require(_platformShare <= 30, \"Platform share cannot be more than 30\");\n        platformShare = _platformShare;\n    }\n\n    function createBounty(string memory _name, string memory _requirements, uint256 _duration) public payable {\n        require(msg.value > 0, \"Bounty must be greater than zero\");\n\n        bountyCounter++;\n        Bounty storage newBounty = bounties[bountyCounter];\n        newBounty.host = msg.sender;\n        newBounty.name = _name;\n        newBounty.requirements = _requirements;\n        newBounty.amount = msg.value;\n        newBounty.deadline = block.timestamp + _duration;\n\n        payable(address(this)).transfer(msg.value);\n\n        emit BountyCreated(bountyCounter, msg.sender, _name, _requirements, msg.value, bounties[bountyCounter].deadline);\n    }\n\n    event EntrySubmitted(uint256 bountyId, uint256 entryId, address indexed participant, string title, string description);\n\n    function addEntry(uint256 bountyId, string memory _title, string memory _description) public {\n        require(bounties[bountyId].deadline > block.timestamp, \"Bounty has ended\");\n\n        bounties[bountyId].participants.push(msg.sender);\n\n        entryCounter++;\n        Entry storage entry = bounties[bountyId].participantToContent[msg.sender].push();\n        entry.id = entryCounter;\n        entry.owner = msg.sender;\n        entry.title = _title;\n        entry.description = _description;\n        entry.votes = 0;\n\n        emit EntrySubmitted(bountyId, entryCounter, msg.sender, _title, _description);\n    }\n\n    event Voted(uint256 bountyId, address indexed voter, uint256 entryId, address indexed participant, string title, string description);\n    function vote(uint256 bountyId, address _participant, uint256 _entryId) public {\n        require(bounties[bountyId].deadline > block.timestamp, \"Bounty has ended\");\n        Entry[] storage entries = bounties[bountyId].participantToContent[_participant];\n        uint256 entryIndex = 0;\n        for (uint256 i = 0; i < entries.length; i++) {\n            if (entries[i].id == _entryId) {\n                entryIndex = i; \n            }\n        }\n\n        require(!entries[entryIndex].hasVoterVoted[msg.sender], \"Already voted\");\n        entries[entryIndex].votes++;\n        entries[entryIndex].hasVoterVoted[msg.sender] = true;\n\n        bounties[bountyId].totalVotes++;\n\n        emit Voted(bountyId, msg.sender, _entryId, _participant, entries[entryIndex].title, entries[entryIndex].description);\n    }\n\n    event BountyClaimed(uint256 bountyId, address indexed claimer, uint256 amount);\n    function claimBounty(uint256 bountyId) public {\n        require(bounties[bountyId].deadline < block.timestamp, \"Bounty still active\");\n\n        Entry[] storage entries = bounties[bountyId].participantToContent[msg.sender];\n        uint256 participantVotes = 0;\n        for (uint256 i = 0; i < entries.length; i++) {\n            participantVotes += entries[i].votes;\n        }\n\n        uint256 totalVotes = bounties[bountyId].totalVotes;\n        require(totalVotes > 0, \"No votes in bounty\");\n\n        uint256 amount = bounties[bountyId].amount * (100 - platformShare) / 100;\n        uint256 participantShare = participantVotes * amount / totalVotes;\n        payable(msg.sender).transfer(participantShare);\n\n        emit BountyClaimed(bountyId, msg.sender, participantShare);\n    }\n\n    function platformClaim(uint256 bountyId) public {\n        require(msg.sender == platformAddress, \"Only withdrawable by the platform\");\n\n        uint256 platformShareAmount = bounties[bountyId].amount * platformShare / 100;\n        payable(platformAddress).transfer(platformShareAmount);\n\n        emit BountyClaimed(bountyId, msg.sender, platformShareAmount);\n    }\n}\n"
+    },
+    "contracts/ContentStorage.sol": {
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\ncontract ContentStorage {\n    struct Content {\n        address owner;\n        uint256 price;\n        string title;\n        string description;\n        string group;\n    }\n\n    mapping(uint256 => Content) public contents;\n    uint256 public contentCount;\n\n    event ContentUploaded(uint256 indexed contentId, address indexed owner, uint256 price, string title, string description, string group);\n    event ContentBought(uint256 indexed contentId, address indexed buyer);\n\n    function uploadContent(uint256 _price, string memory _title, string memory _description, string memory _group) public {\n        contents[contentCount] = Content({\n            owner: msg.sender,\n            price: _price,\n            title: _title,\n            description: _description,\n            group: _group\n        });\n\n        emit ContentUploaded(contentCount, msg.sender, _price, _title, _description, _group);\n        contentCount++;\n    }\n\n    function buyContent(uint256 _contentId) public payable {\n        Content storage content = contents[_contentId];\n\n        require(content.owner != address(0), \"Content not found\");\n        require(msg.value >= content.price, \"Insufficient payment to view content\");\n\n        payable(content.owner).transfer(msg.value);\n\n        emit ContentBought(_contentId, msg.sender);\n    }\n}\n"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "evmVersion": "paris",
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}

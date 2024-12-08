@@ -1,0 +1,246 @@
+{
+  "address": "0x871cBBC615Cc013fabbf52c7934ebf2A841Fa829",
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "adId",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "advertiser",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "cost",
+          "type": "uint256"
+        }
+      ],
+      "name": "AdCreated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "adId",
+          "type": "uint256"
+        }
+      ],
+      "name": "AdRemoved",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "adCounter",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "ads",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "advertiser",
+          "type": "address"
+        },
+        {
+          "internalType": "string",
+          "name": "adContent",
+          "type": "string"
+        },
+        {
+          "internalType": "bool",
+          "name": "isActive",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "adContent",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "cost",
+          "type": "uint256"
+        }
+      ],
+      "name": "createAd",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "platformAddress",
+      "outputs": [
+        {
+          "internalType": "address payable",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "adId",
+          "type": "uint256"
+        }
+      ],
+      "name": "removeAd",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x72aaf9575fa3c326cc75172c8a18f184b3ef9d54fb694918a8f8fc4fb0bec46d",
+  "receipt": {
+    "to": null,
+    "from": "0xB0085e5316916D5144eAC5a05bCaE8587a29Ed41",
+    "contractAddress": "0x871cBBC615Cc013fabbf52c7934ebf2A841Fa829",
+    "transactionIndex": 139,
+    "gasUsed": "454156",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x167c09296a1611504fb2416a751ddc1863d5a0bd0f8fadd52d3fbd7790db5fed",
+    "transactionHash": "0x72aaf9575fa3c326cc75172c8a18f184b3ef9d54fb694918a8f8fc4fb0bec46d",
+    "logs": [],
+    "blockNumber": 7233624,
+    "cumulativeGasUsed": "17353475",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 1,
+  "solcInputHash": "da5647b0857c98e9b0fd017bc99e472d",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"adId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"advertiser\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"cost\",\"type\":\"uint256\"}],\"name\":\"AdCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"adId\",\"type\":\"uint256\"}],\"name\":\"AdRemoved\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"adCounter\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"ads\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"advertiser\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"adContent\",\"type\":\"string\"},{\"internalType\":\"bool\",\"name\":\"isActive\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"adContent\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"cost\",\"type\":\"uint256\"}],\"name\":\"createAd\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"platformAddress\",\"outputs\":[{\"internalType\":\"address payable\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"adId\",\"type\":\"uint256\"}],\"name\":\"removeAd\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/Advertisement.sol\":\"Advertisement\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/Advertisement.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity >=0.8.0 <0.9.0;\\n\\ncontract Advertisement {\\n    struct Ad {\\n        address advertiser;\\n        string adContent;\\n        bool isActive;\\n    }\\n\\n    mapping(uint256 => Ad) public ads;\\n    uint256 public adCounter;\\n    address payable public immutable platformAddress;\\n\\n    event AdCreated(uint256 adId, address indexed advertiser, uint256 cost);\\n    event AdRemoved(uint256 adId);\\n\\n    constructor() {\\n        platformAddress = payable(msg.sender);\\n    }\\n\\n    function createAd(string memory adContent, uint256 cost) public payable {\\n        require(msg.value == cost, \\\"Incorrect amount sent\\\");\\n\\n        adCounter++;\\n        ads[adCounter] = Ad(msg.sender, adContent, false);\\n        payable(platformAddress).transfer(msg.value);\\n        emit AdCreated(adCounter, msg.sender, cost);\\n    }\\n\\n    function removeAd(uint256 adId) public {\\n        require(ads[adId].advertiser == msg.sender, \\\"Not the advertiser\\\");\\n        require(ads[adId].isActive, \\\"Ad already removed\\\");\\n\\n        ads[adId].isActive = false;\\n        emit AdRemoved(adId);\\n    }\\n}\\n\",\"keccak256\":\"0x1aaa4f795e8bf98496b19bc69365d9e764c083fb4aee0080ead5d495eec3e687\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x60a060405234801561001057600080fd5b50336080526080516107426100366000396000818160f201526103c601526107426000f3fe60806040526004361061004a5760003560e01c806311a7a4c01461004f578063331ce52b14610087578063be12cc88146100ab578063d1de6aeb146100cd578063dbe55e56146100e0575b600080fd5b34801561005b57600080fd5b5061006f61006a366004610451565b61012c565b60405161007e9392919061046a565b60405180910390f35b34801561009357600080fd5b5061009d60015481565b60405190815260200161007e565b3480156100b757600080fd5b506100cb6100c6366004610451565b6101e4565b005b6100cb6100db3660046104e7565b6102e8565b3480156100ec57600080fd5b506101147f000000000000000000000000000000000000000000000000000000000000000081565b6040516001600160a01b03909116815260200161007e565b600060208190529081526040902080546001820180546001600160a01b0390921692916101589061059c565b80601f01602080910402602001604051908101604052809291908181526020018280546101849061059c565b80156101d15780601f106101a6576101008083540402835291602001916101d1565b820191906000526020600020905b8154815290600101906020018083116101b457829003601f168201915b5050506002909301549192505060ff1683565b6000818152602081905260409020546001600160a01b031633146102445760405162461bcd60e51b81526020600482015260126024820152712737ba103a34329030b23b32b93a34b9b2b960711b60448201526064015b60405180910390fd5b60008181526020819052604090206002015460ff1661029a5760405162461bcd60e51b8152602060048201526012602482015271105908185b1c9958591e481c995b5bdd995960721b604482015260640161023b565b60008181526020818152604091829020600201805460ff1916905590518281527f479ed4caae9ca744a2314ee8d0ce4bc9707c7c3a1cca224076728f970ce875bd910160405180910390a150565b80341461032f5760405162461bcd60e51b8152602060048201526015602482015274125b98dbdc9c9958dd08185b5bdd5b9d081cd95b9d605a1b604482015260640161023b565b6001805490600061033f836105d6565b909155505060408051606081018252338152602080820185815260008385018190526001805482529281905293909320825181546001600160a01b0319166001600160a01b0390911617815592519192919082019061039e908261064c565b506040918201516002909101805491151560ff19909216919091179055516001600160a01b037f000000000000000000000000000000000000000000000000000000000000000016903480156108fc02916000818181858888f1935050505015801561040e573d6000803e3d6000fd5b50600154604080519182526020820183905233917fc7ee275ef2ba193e42bf9f80a17bc8bbf309d0453255f7c34f1eab54a06922d6910160405180910390a25050565b60006020828403121561046357600080fd5b5035919050565b60018060a01b038416815260006020606081840152845180606085015260005b818110156104a65786810183015185820160800152820161048a565b506000608082860101526080601f19601f830116850101925050508215156040830152949350505050565b634e487b7160e01b600052604160045260246000fd5b600080604083850312156104fa57600080fd5b823567ffffffffffffffff8082111561051257600080fd5b818501915085601f83011261052657600080fd5b813581811115610538576105386104d1565b604051601f8201601f19908116603f01168101908382118183101715610560576105606104d1565b8160405282815288602084870101111561057957600080fd5b826020860160208301376000602093820184015298969091013596505050505050565b600181811c908216806105b057607f821691505b6020821081036105d057634e487b7160e01b600052602260045260246000fd5b50919050565b6000600182016105f657634e487b7160e01b600052601160045260246000fd5b5060010190565b601f82111561064757600081815260208120601f850160051c810160208610156106245750805b601f850160051c820191505b8181101561064357828155600101610630565b5050505b505050565b815167ffffffffffffffff811115610666576106666104d1565b61067a81610674845461059c565b846105fd565b602080601f8311600181146106af57600084156106975750858301515b600019600386901b1c1916600185901b178555610643565b600085815260208120601f198616915b828110156106de578886015182559484019460019091019084016106bf565b50858210156106fc5787850151600019600388901b60f8161c191681555b5050505050600190811b0190555056fea2646970667358221220141edd801ed6b031ad393985b071dd4f85965fde4a0f863fcc55e4b84f6ecc6b64736f6c63430008140033",
+  "deployedBytecode": "0x60806040526004361061004a5760003560e01c806311a7a4c01461004f578063331ce52b14610087578063be12cc88146100ab578063d1de6aeb146100cd578063dbe55e56146100e0575b600080fd5b34801561005b57600080fd5b5061006f61006a366004610451565b61012c565b60405161007e9392919061046a565b60405180910390f35b34801561009357600080fd5b5061009d60015481565b60405190815260200161007e565b3480156100b757600080fd5b506100cb6100c6366004610451565b6101e4565b005b6100cb6100db3660046104e7565b6102e8565b3480156100ec57600080fd5b506101147f000000000000000000000000000000000000000000000000000000000000000081565b6040516001600160a01b03909116815260200161007e565b600060208190529081526040902080546001820180546001600160a01b0390921692916101589061059c565b80601f01602080910402602001604051908101604052809291908181526020018280546101849061059c565b80156101d15780601f106101a6576101008083540402835291602001916101d1565b820191906000526020600020905b8154815290600101906020018083116101b457829003601f168201915b5050506002909301549192505060ff1683565b6000818152602081905260409020546001600160a01b031633146102445760405162461bcd60e51b81526020600482015260126024820152712737ba103a34329030b23b32b93a34b9b2b960711b60448201526064015b60405180910390fd5b60008181526020819052604090206002015460ff1661029a5760405162461bcd60e51b8152602060048201526012602482015271105908185b1c9958591e481c995b5bdd995960721b604482015260640161023b565b60008181526020818152604091829020600201805460ff1916905590518281527f479ed4caae9ca744a2314ee8d0ce4bc9707c7c3a1cca224076728f970ce875bd910160405180910390a150565b80341461032f5760405162461bcd60e51b8152602060048201526015602482015274125b98dbdc9c9958dd08185b5bdd5b9d081cd95b9d605a1b604482015260640161023b565b6001805490600061033f836105d6565b909155505060408051606081018252338152602080820185815260008385018190526001805482529281905293909320825181546001600160a01b0319166001600160a01b0390911617815592519192919082019061039e908261064c565b506040918201516002909101805491151560ff19909216919091179055516001600160a01b037f000000000000000000000000000000000000000000000000000000000000000016903480156108fc02916000818181858888f1935050505015801561040e573d6000803e3d6000fd5b50600154604080519182526020820183905233917fc7ee275ef2ba193e42bf9f80a17bc8bbf309d0453255f7c34f1eab54a06922d6910160405180910390a25050565b60006020828403121561046357600080fd5b5035919050565b60018060a01b038416815260006020606081840152845180606085015260005b818110156104a65786810183015185820160800152820161048a565b506000608082860101526080601f19601f830116850101925050508215156040830152949350505050565b634e487b7160e01b600052604160045260246000fd5b600080604083850312156104fa57600080fd5b823567ffffffffffffffff8082111561051257600080fd5b818501915085601f83011261052657600080fd5b813581811115610538576105386104d1565b604051601f8201601f19908116603f01168101908382118183101715610560576105606104d1565b8160405282815288602084870101111561057957600080fd5b826020860160208301376000602093820184015298969091013596505050505050565b600181811c908216806105b057607f821691505b6020821081036105d057634e487b7160e01b600052602260045260246000fd5b50919050565b6000600182016105f657634e487b7160e01b600052601160045260246000fd5b5060010190565b601f82111561064757600081815260208120601f850160051c810160208610156106245750805b601f850160051c820191505b8181101561064357828155600101610630565b5050505b505050565b815167ffffffffffffffff811115610666576106666104d1565b61067a81610674845461059c565b846105fd565b602080601f8311600181146106af57600084156106975750858301515b600019600386901b1c1916600185901b178555610643565b600085815260208120601f198616915b828110156106de578886015182559484019460019091019084016106bf565b50858210156106fc5787850151600019600388901b60f8161c191681555b5050505050600190811b0190555056fea2646970667358221220141edd801ed6b031ad393985b071dd4f85965fde4a0f863fcc55e4b84f6ecc6b64736f6c63430008140033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 13,
+        "contract": "contracts/Advertisement.sol:Advertisement",
+        "label": "ads",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_mapping(t_uint256,t_struct(Ad)8_storage)"
+      },
+      {
+        "astId": 15,
+        "contract": "contracts/Advertisement.sol:Advertisement",
+        "label": "adCounter",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_uint256"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_uint256,t_struct(Ad)8_storage)": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => struct Advertisement.Ad)",
+        "numberOfBytes": "32",
+        "value": "t_struct(Ad)8_storage"
+      },
+      "t_string_storage": {
+        "encoding": "bytes",
+        "label": "string",
+        "numberOfBytes": "32"
+      },
+      "t_struct(Ad)8_storage": {
+        "encoding": "inplace",
+        "label": "struct Advertisement.Ad",
+        "members": [
+          {
+            "astId": 3,
+            "contract": "contracts/Advertisement.sol:Advertisement",
+            "label": "advertiser",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_address"
+          },
+          {
+            "astId": 5,
+            "contract": "contracts/Advertisement.sol:Advertisement",
+            "label": "adContent",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_string_storage"
+          },
+          {
+            "astId": 7,
+            "contract": "contracts/Advertisement.sol:Advertisement",
+            "label": "isActive",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_bool"
+          }
+        ],
+        "numberOfBytes": "96"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}

@@ -1,0 +1,283 @@
+{
+  "address": "0x4433cE88D6877aD6a984984F6E15019fF1af57f8",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "contentId",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "buyer",
+          "type": "address"
+        }
+      ],
+      "name": "ContentBought",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "contentId",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "group",
+          "type": "string"
+        }
+      ],
+      "name": "ContentUploaded",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_contentId",
+          "type": "uint256"
+        }
+      ],
+      "name": "buyContent",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "contentCount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "contents",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "group",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_price",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "_title",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "_description",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "_group",
+          "type": "string"
+        }
+      ],
+      "name": "uploadContent",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x7e093fa12f3fd2566ecfce54a84d818ba8ebd0972eb39ef6f9684790882fe0a0",
+  "receipt": {
+    "to": null,
+    "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+    "contractAddress": "0x4433cE88D6877aD6a984984F6E15019fF1af57f8",
+    "transactionIndex": 95,
+    "gasUsed": "532298",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x7a2912c502593100bcb315647eba7cb6dbe59126dfeff94e96838cdc5ab8702c",
+    "transactionHash": "0x7e093fa12f3fd2566ecfce54a84d818ba8ebd0972eb39ef6f9684790882fe0a0",
+    "logs": [],
+    "blockNumber": 7233450,
+    "cumulativeGasUsed": "22459214",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 1,
+  "solcInputHash": "a802cbe86d5c0eb3a3adc9bfc4196760",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"contentId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"buyer\",\"type\":\"address\"}],\"name\":\"ContentBought\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"contentId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"title\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"description\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"group\",\"type\":\"string\"}],\"name\":\"ContentUploaded\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_contentId\",\"type\":\"uint256\"}],\"name\":\"buyContent\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"contentCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"contents\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"title\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"description\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"group\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_price\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"_title\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_description\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_group\",\"type\":\"string\"}],\"name\":\"uploadContent\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/ContentStorage.sol\":\"ContentStorage\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/ContentStorage.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.0;\\n\\ncontract ContentStorage {\\n    struct Content {\\n        address owner;\\n        uint256 price;\\n        string title;\\n        string description;\\n        string group;\\n    }\\n\\n    mapping(uint256 => Content) public contents;\\n    uint256 public contentCount;\\n\\n    event ContentUploaded(uint256 indexed contentId, address indexed owner, uint256 price, string title, string description, string group);\\n    event ContentBought(uint256 indexed contentId, address indexed buyer);\\n\\n    function uploadContent(uint256 _price, string memory _title, string memory _description, string memory _group) public {\\n        contents[contentCount] = Content({\\n            owner: msg.sender,\\n            price: _price,\\n            title: _title,\\n            description: _description,\\n            group: _group\\n        });\\n\\n        emit ContentUploaded(contentCount, msg.sender, _price, _title, _description, _group);\\n        contentCount++;\\n    }\\n\\n    function buyContent(uint256 _contentId) public payable {\\n        Content storage content = contents[_contentId];\\n\\n        require(content.owner != address(0), \\\"Content not found\\\");\\n        require(msg.value >= content.price, \\\"Insufficient payment to view content\\\");\\n\\n        payable(content.owner).transfer(msg.value);\\n\\n        emit ContentBought(_contentId, msg.sender);\\n    }\\n}\\n\",\"keccak256\":\"0x2395c7dc4cd1373ad0ddb92f6fd06be36128cec65316967bc49dbc0790aab1a4\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b506108aa806100206000396000f3fe60806040526004361061003f5760003560e01c8063b5ecf91214610044578063cc4596961461007e578063d6cfa440146100a2578063eeb97891146100b7575b600080fd5b34801561005057600080fd5b5061006461005f3660046104cd565b6100d7565b60405161007595949392919061052c565b60405180910390f35b34801561008a57600080fd5b5061009460015481565b604051908152602001610075565b6100b56100b03660046104cd565b6102a8565b005b3480156100c357600080fd5b506100b56100d2366004610628565b6103d0565b6000602081905290815260409020805460018201546002830180546001600160a01b03909316939192610109906106ba565b80601f0160208091040260200160405190810160405280929190818152602001828054610135906106ba565b80156101825780601f1061015757610100808354040283529160200191610182565b820191906000526020600020905b81548152906001019060200180831161016557829003601f168201915b505050505090806003018054610197906106ba565b80601f01602080910402602001604051908101604052809291908181526020018280546101c3906106ba565b80156102105780601f106101e557610100808354040283529160200191610210565b820191906000526020600020905b8154815290600101906020018083116101f357829003601f168201915b505050505090806004018054610225906106ba565b80601f0160208091040260200160405190810160405280929190818152602001828054610251906106ba565b801561029e5780601f106102735761010080835404028352916020019161029e565b820191906000526020600020905b81548152906001019060200180831161028157829003601f168201915b5050505050905085565b600081815260208190526040902080546001600160a01b03166103065760405162461bcd60e51b815260206004820152601160248201527010dbdb9d195b9d081b9bdd08199bdd5b99607a1b60448201526064015b60405180910390fd5b80600101543410156103665760405162461bcd60e51b8152602060048201526024808201527f496e73756666696369656e74207061796d656e7420746f207669657720636f6e6044820152631d195b9d60e21b60648201526084016102fd565b80546040516001600160a01b03909116903480156108fc02916000818181858888f1935050505015801561039e573d6000803e3d6000fd5b50604051339083907f78309c24ab58f1f81c120d9812b3076c5e405109490241773c642c52816a135b90600090a35050565b6040805160a081018252338152602080820187815282840187815260608401879052608084018690526001805460009081529384905294909220835181546001600160a01b0319166001600160a01b039091161781559051938101939093555190919060028201906104429082610743565b50606082015160038201906104579082610743565b506080820151600482019061046c9082610743565b50506001546040513392507f1adf2293ed531c44a6646b3ece25b1757e56e1181b41b2e14557ea95041ea433906104aa908890889088908890610803565b60405180910390a3600180549060006104c28361084d565b919050555050505050565b6000602082840312156104df57600080fd5b5035919050565b6000815180845260005b8181101561050c576020818501810151868301820152016104f0565b506000602082860101526020601f19601f83011685010191505092915050565b60018060a01b038616815284602082015260a06040820152600061055360a08301866104e6565b828103606084015261056581866104e6565b9050828103608084015261057981856104e6565b98975050505050505050565b634e487b7160e01b600052604160045260246000fd5b600082601f8301126105ac57600080fd5b813567ffffffffffffffff808211156105c7576105c7610585565b604051601f8301601f19908116603f011681019082821181831017156105ef576105ef610585565b8160405283815286602085880101111561060857600080fd5b836020870160208301376000602085830101528094505050505092915050565b6000806000806080858703121561063e57600080fd5b84359350602085013567ffffffffffffffff8082111561065d57600080fd5b6106698883890161059b565b9450604087013591508082111561067f57600080fd5b61068b8883890161059b565b935060608701359150808211156106a157600080fd5b506106ae8782880161059b565b91505092959194509250565b600181811c908216806106ce57607f821691505b6020821081036106ee57634e487b7160e01b600052602260045260246000fd5b50919050565b601f82111561073e57600081815260208120601f850160051c8101602086101561071b5750805b601f850160051c820191505b8181101561073a57828155600101610727565b5050505b505050565b815167ffffffffffffffff81111561075d5761075d610585565b6107718161076b84546106ba565b846106f4565b602080601f8311600181146107a6576000841561078e5750858301515b600019600386901b1c1916600185901b17855561073a565b600085815260208120601f198616915b828110156107d5578886015182559484019460019091019084016107b6565b50858210156107f35787850151600019600388901b60f8161c191681555b5050505050600190811b01905550565b84815260806020820152600061081c60808301866104e6565b828103604084015261082e81866104e6565b9050828103606084015261084281856104e6565b979650505050505050565b60006001820161086d57634e487b7160e01b600052601160045260246000fd5b506001019056fea2646970667358221220a426e64fc2c2b2c217f87dd2bb305bdd341ce83853e855f75de907f9109f35e964736f6c63430008140033",
+  "deployedBytecode": "0x60806040526004361061003f5760003560e01c8063b5ecf91214610044578063cc4596961461007e578063d6cfa440146100a2578063eeb97891146100b7575b600080fd5b34801561005057600080fd5b5061006461005f3660046104cd565b6100d7565b60405161007595949392919061052c565b60405180910390f35b34801561008a57600080fd5b5061009460015481565b604051908152602001610075565b6100b56100b03660046104cd565b6102a8565b005b3480156100c357600080fd5b506100b56100d2366004610628565b6103d0565b6000602081905290815260409020805460018201546002830180546001600160a01b03909316939192610109906106ba565b80601f0160208091040260200160405190810160405280929190818152602001828054610135906106ba565b80156101825780601f1061015757610100808354040283529160200191610182565b820191906000526020600020905b81548152906001019060200180831161016557829003601f168201915b505050505090806003018054610197906106ba565b80601f01602080910402602001604051908101604052809291908181526020018280546101c3906106ba565b80156102105780601f106101e557610100808354040283529160200191610210565b820191906000526020600020905b8154815290600101906020018083116101f357829003601f168201915b505050505090806004018054610225906106ba565b80601f0160208091040260200160405190810160405280929190818152602001828054610251906106ba565b801561029e5780601f106102735761010080835404028352916020019161029e565b820191906000526020600020905b81548152906001019060200180831161028157829003601f168201915b5050505050905085565b600081815260208190526040902080546001600160a01b03166103065760405162461bcd60e51b815260206004820152601160248201527010dbdb9d195b9d081b9bdd08199bdd5b99607a1b60448201526064015b60405180910390fd5b80600101543410156103665760405162461bcd60e51b8152602060048201526024808201527f496e73756666696369656e74207061796d656e7420746f207669657720636f6e6044820152631d195b9d60e21b60648201526084016102fd565b80546040516001600160a01b03909116903480156108fc02916000818181858888f1935050505015801561039e573d6000803e3d6000fd5b50604051339083907f78309c24ab58f1f81c120d9812b3076c5e405109490241773c642c52816a135b90600090a35050565b6040805160a081018252338152602080820187815282840187815260608401879052608084018690526001805460009081529384905294909220835181546001600160a01b0319166001600160a01b039091161781559051938101939093555190919060028201906104429082610743565b50606082015160038201906104579082610743565b506080820151600482019061046c9082610743565b50506001546040513392507f1adf2293ed531c44a6646b3ece25b1757e56e1181b41b2e14557ea95041ea433906104aa908890889088908890610803565b60405180910390a3600180549060006104c28361084d565b919050555050505050565b6000602082840312156104df57600080fd5b5035919050565b6000815180845260005b8181101561050c576020818501810151868301820152016104f0565b506000602082860101526020601f19601f83011685010191505092915050565b60018060a01b038616815284602082015260a06040820152600061055360a08301866104e6565b828103606084015261056581866104e6565b9050828103608084015261057981856104e6565b98975050505050505050565b634e487b7160e01b600052604160045260246000fd5b600082601f8301126105ac57600080fd5b813567ffffffffffffffff808211156105c7576105c7610585565b604051601f8301601f19908116603f011681019082821181831017156105ef576105ef610585565b8160405283815286602085880101111561060857600080fd5b836020870160208301376000602085830101528094505050505092915050565b6000806000806080858703121561063e57600080fd5b84359350602085013567ffffffffffffffff8082111561065d57600080fd5b6106698883890161059b565b9450604087013591508082111561067f57600080fd5b61068b8883890161059b565b935060608701359150808211156106a157600080fd5b506106ae8782880161059b565b91505092959194509250565b600181811c908216806106ce57607f821691505b6020821081036106ee57634e487b7160e01b600052602260045260246000fd5b50919050565b601f82111561073e57600081815260208120601f850160051c8101602086101561071b5750805b601f850160051c820191505b8181101561073a57828155600101610727565b5050505b505050565b815167ffffffffffffffff81111561075d5761075d610585565b6107718161076b84546106ba565b846106f4565b602080601f8311600181146107a6576000841561078e5750858301515b600019600386901b1c1916600185901b17855561073a565b600085815260208120601f198616915b828110156107d5578886015182559484019460019091019084016107b6565b50858210156107f35787850151600019600388901b60f8161c191681555b5050505050600190811b01905550565b84815260806020820152600061081c60808301866104e6565b828103604084015261082e81866104e6565b9050828103606084015261084281856104e6565b979650505050505050565b60006001820161086d57634e487b7160e01b600052601160045260246000fd5b506001019056fea2646970667358221220a426e64fc2c2b2c217f87dd2bb305bdd341ce83853e855f75de907f9109f35e964736f6c63430008140033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 712,
+        "contract": "contracts/ContentStorage.sol:ContentStorage",
+        "label": "contents",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_mapping(t_uint256,t_struct(Content)707_storage)"
+      },
+      {
+        "astId": 714,
+        "contract": "contracts/ContentStorage.sol:ContentStorage",
+        "label": "contentCount",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_uint256"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_mapping(t_uint256,t_struct(Content)707_storage)": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => struct ContentStorage.Content)",
+        "numberOfBytes": "32",
+        "value": "t_struct(Content)707_storage"
+      },
+      "t_string_storage": {
+        "encoding": "bytes",
+        "label": "string",
+        "numberOfBytes": "32"
+      },
+      "t_struct(Content)707_storage": {
+        "encoding": "inplace",
+        "label": "struct ContentStorage.Content",
+        "members": [
+          {
+            "astId": 698,
+            "contract": "contracts/ContentStorage.sol:ContentStorage",
+            "label": "owner",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_address"
+          },
+          {
+            "astId": 700,
+            "contract": "contracts/ContentStorage.sol:ContentStorage",
+            "label": "price",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 702,
+            "contract": "contracts/ContentStorage.sol:ContentStorage",
+            "label": "title",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_string_storage"
+          },
+          {
+            "astId": 704,
+            "contract": "contracts/ContentStorage.sol:ContentStorage",
+            "label": "description",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_string_storage"
+          },
+          {
+            "astId": 706,
+            "contract": "contracts/ContentStorage.sol:ContentStorage",
+            "label": "group",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_string_storage"
+          }
+        ],
+        "numberOfBytes": "160"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}
