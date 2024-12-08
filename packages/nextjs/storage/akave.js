@@ -94,8 +94,12 @@ export class Akave {
 
   async getAllFileURLs(bucket) {
     const files = await this.listFiles(bucket);
-    const fileURLs = files.map(file => this.getFileURL(bucket, file.Name)); // Assuming file.Name contains the necessary identifier
-    return Promise.all(fileURLs); // Ensure all promises are resolved
+    console.log("Files:", files); // Check the output
+    if (!Array.isArray(files)) {
+      throw new Error("listFiles did not return an array");
+    }
+    const fileURLs = files.map(file => this.getFileURL(bucket, file.Name));
+    return Promise.all(fileURLs);
   }
 
   async getAllFileURLsFromAllBuckets() {

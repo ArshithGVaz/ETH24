@@ -34,6 +34,12 @@ const nextConfig = {
         port: "",
         pathname: "/photos/**",
       },
+      {
+        protocol: "https",
+        hostname: "tops-gibbon-friendly.ngrok-free.app",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 };
