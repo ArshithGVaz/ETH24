@@ -1,11 +1,15 @@
-# 🏗 Scaffold-ETH 2
+## Akave Client Library
+### Overview
+The Akave Client SDK is our JavaScript library, providing an intuitive interface for interacting with the Akave Link API, a decentralized protocol for managing on-chain data lakes.
 
-<h4 align="center">
-  <a href="https://docs.scaffoldeth.io">Documentation</a> |
-  <a href="https://scaffoldeth.io">Website</a>
-</h4>
+For documentation and more information, refer to the [akave-client](https://www.npmjs.com/package/akave-client) on npm.
 
-## Starting Akave
+### Installation
+```bash
+npm install akave-client
+```
+
+### Starting the Akave Link API
 ```bash
 docker pull akave/akavelink:latest
 
@@ -17,7 +21,12 @@ docker run -d \
 Akave faucet to claim 10 AKVF: https://faucet.akave.ai/
 ```
 
+# 🏗 Scaffold-ETH 2
 
+<h4 align="center">
+  <a href="https://docs.scaffoldeth.io">Documentation</a> |
+  <a href="https://scaffoldeth.io">Website</a>
+</h4>
 
 🧪 An open-source, up-to-date toolkit for building decentralized applications (dapps) on the Ethereum blockchain. It's designed to make it easier for developers to create and deploy smart contracts and build user interfaces that interact with those contracts.
 
