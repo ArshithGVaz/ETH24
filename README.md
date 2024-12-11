@@ -18,8 +18,9 @@ docker run -d \
   -e NODE_ADDRESS="connect.akave.ai:5500" \
   -e PRIVATE_KEY="your_private_key_on_your_wallet" \
   akave/akavelink:latest
-Akave faucet to claim 10 AKVF: https://faucet.akave.ai/
 ```
+Akave faucet to claim 10 AKVF: https://faucet.akave.ai/
+
 
 # 🏗 Scaffold-ETH 2
 
