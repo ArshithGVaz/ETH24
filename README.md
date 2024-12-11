@@ -21,84 +21,57 @@ docker run -d \
 ```
 Akave faucet to claim 10 AKVF: https://faucet.akave.ai/
 
+---
 
-# 🏗 Scaffold-ETH 2
+# Wandereum
 
-<h4 align="center">
-  <a href="https://docs.scaffoldeth.io">Documentation</a> |
-  <a href="https://scaffoldeth.io">Website</a>
-</h4>
+Wandereum is an innovative platform designed for travelers and vloggers to monetize their unique travel content, including pictures and videos. By leveraging blockchain technology, Wandereum empowers content creators to retain ownership of their work while providing buyers with exclusive access to their favorite travel influencers.
 
-🧪 An open-source, up-to-date toolkit for building decentralized applications (dapps) on the Ethereum blockchain. It's designed to make it easier for developers to create and deploy smart contracts and build user interfaces that interact with those contracts.
+---
 
-⚙️ Built using NextJS, RainbowKit, Hardhat, Wagmi, Viem, and Typescript.
+## Key Features
 
-- ✅ **Contract Hot Reload**: Your frontend auto-adapts to your smart contract as you edit it.
-- 🪝 **[Custom hooks](https://docs.scaffoldeth.io/hooks/)**: Collection of React hooks wrapper around [wagmi](https://wagmi.sh/) to simplify interactions with smart contracts with typescript autocompletion.
-- 🧱 [**Components**](https://docs.scaffoldeth.io/components/): Collection of common web3 components to quickly build your frontend.
-- 🔥 **Burner Wallet & Local Faucet**: Quickly test your application with a burner wallet and local faucet.
-- 🔐 **Integration with Wallet Providers**: Connect to different wallet providers and interact with the Ethereum network.
+### **1. Content Ownership and Monetization**
+- Travelers and vloggers can sell their original travel photos and videos, ensuring fair compensation for their creative work.
+- Content creators retain full rights to their content, allowing them to set prices that reflect their worth.
 
-![Debug Contracts tab](https://github.com/scaffold-eth/scaffold-eth-2/assets/55535804/b237af0c-5027-4849-a5c1-2e31495cccb1)
+### **2. Subscription-Based Model**
+- Buyers can subscribe to their favorite vloggers to gain access to exclusive content and behind-the-scenes insights.
+- This subscription model fosters closer relationships between creators and their audience, encouraging frequent content updates.
 
-## Requirements
+### **3. Interactive Travel Experiences**
+- Vloggers can share their travel plans, enabling followers to visit the same locations and engage in similar experiences.
+- Enhances community interaction and promotes a shared love for travel.
 
-Before you begin, you need to install the following tools:
+### **4. Dynamic Platform Fees**
+- Platform fees decrease as content creators become more active, incentivizing regular content updates and engagement.
 
-- [Node (>= v18.18)](https://nodejs.org/en/download/)
-- Yarn ([v1](https://classic.yarnpkg.com/en/docs/install/) or [v2+](https://yarnpkg.com/getting-started/install))
-- [Git](https://git-scm.com/downloads)
+### **5. Tour Bounty: Revolutionizing the Tourism Industry**
+- **Bounty Creation**: Hosts (individuals, groups, or government entities) can offer bounties for specific locations, encouraging content submissions related to those areas.
+- **Public Participation**: Anyone can upload their moments tagged with the bounty, making the process inclusive and community-driven.
+- **Voting Mechanism**: Free voting on submissions with gas fees covered by the platform ensures accessibility.
+- **Reward Distribution**: Bounties are awarded to winners based on the percentage of votes received, fostering healthy competition and motivating quality content creation.
 
-## Quickstart
+---
 
-To get started with Scaffold-ETH 2, follow the steps below:
+## Technology Stack
 
-1. Install dependencies if it was skipped in CLI:
+### **Core Technologies**
+- **Scaffold-ETH 2**: A modern Ethereum development framework using Next.js, TypeScript, Wagmi, and Hardhat.
+- **Akave SDK**: Our SDK for using akave datastore.
+- **Coinbase Onchain SDK**: For secure and scalable on-chain interactions.
+- **Next.js**: The React framework for server-rendered applications.
+- **Solidity**: For writing smart contracts.
 
-```
-cd my-dapp-example
-yarn install
-```
+### **Additional Tools**
+- **Tailwind CSS**: For responsive and efficient UI design.
+- **Hardhat**: Ethereum development environment for compiling, deploying, and testing smart contracts.
+- **Viem**: A modern library for Ethereum interactions.
 
-2. Run a local network in the first terminal:
+---
 
-```
-yarn chain
-```
+## License
+Wandereum is licensed under the [MIT License](LICENSE). Feel free to use and modify the code for your own projects.
 
-This command starts a local Ethereum network using Hardhat. The network runs on your local machine and can be used for testing and development. You can customize the network configuration in `packages/hardhat/hardhat.config.ts`.
+---
 
-3. On a second terminal, deploy the test contract:
-
-```
-yarn deploy
-```
-
-This command deploys a test smart contract to the local network. The contract is located in `packages/hardhat/contracts` and can be modified to suit your needs. The `yarn deploy` command uses the deploy script located in `packages/hardhat/deploy` to deploy the contract to the network. You can also customize the deploy script.
-
-4. On a third terminal, start your NextJS app:
-
-```
-yarn start
-```
-
-Visit your app on: `http://localhost:3000`. You can interact with your smart contract using the `Debug Contracts` page. You can tweak the app config in `packages/nextjs/scaffold.config.ts`.
-
-Run smart contract test with `yarn hardhat:test`
-
-- Edit your smart contracts in `packages/hardhat/contracts`
-- Edit your frontend homepage at `packages/nextjs/app/page.tsx`. For guidance on [routing](https://nextjs.org/docs/app/building-your-application/routing/defining-routes) and configuring [pages/layouts](https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts) checkout the Next.js documentation.
-- Edit your deployment scripts in `packages/hardhat/deploy`
-
-
-## Documentation
-
-Visit our [docs](https://docs.scaffoldeth.io) to learn how to start building with Scaffold-ETH 2.
-
-To know more about its features, check out our [website](https://scaffoldeth.io).
-
-## Contributing to Scaffold-ETH 2
-
-We welcome contributions to Scaffold-ETH 2!
-
-Please see [CONTRIBUTING.MD](https://github.com/scaffold-eth/scaffold-eth-2/blob/main/CONTRIBUTING.md) for more information and guidelines for contributing to Scaffold-ETH 2.
